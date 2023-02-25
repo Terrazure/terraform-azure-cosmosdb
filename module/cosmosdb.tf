@@ -12,6 +12,7 @@ resource "azurerm_cosmosdb_account" "db" {
   public_network_access_enabled   = false
   enable_automatic_failover       = true
   enable_multiple_write_locations = true
+  local_authentication_disabled   = true
   default_identity_type           = var.customer_managed_keys.cmk_enabled ? "UserAssignedIdentity=${var.customer_managed_keys.user_managed_identity_id}" : null
   key_vault_key_id                = var.customer_managed_keys.cmk_enabled ? var.customer_managed_keys.kvt_key_versionless_id : null
 
@@ -35,9 +36,9 @@ resource "azurerm_cosmosdb_account" "db" {
   dynamic "backup" {
     for_each = var.backup != null ? ["enabled"] : []
     content {
-      type                = local.backup.type
-      interval_in_minutes = local.backup.interval_in_minutes
-      retention_in_hours  = local.backup.retention_in_hours
+      type                = var.backup.type
+      interval_in_minutes = var.backup.interval_in_minutes
+      retention_in_hours  = var.backup.retention_in_hours
     }
   }
 
