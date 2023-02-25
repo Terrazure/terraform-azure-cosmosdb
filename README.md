@@ -1,7 +1,8 @@
 <!-- BEGIN_TF_DOCS -->
 [![Terraform Unit Tests](https://github.com/Terrazure/terraform-azure-cosmosdb/actions/workflows/tf-unit-tests.yml/badge.svg)](https://github.com/Terrazure/terraform-azure-cosmosdb/actions/workflows/tf-unit-tests.yml)
 [![Terraform Plan/Apply](https://github.com/Terrazure/terraform-azure-cosmosdb/actions/workflows/tf-plan-apply.yml/badge.svg)](https://github.com/Terrazure/terraform-azure-cosmosdb/actions/workflows/tf-plan-apply.yml)
-Azure CosmosDB Account
+
+# Azure CosmosDB Account
 
 ## Requirements
 
