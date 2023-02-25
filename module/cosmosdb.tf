@@ -3,7 +3,7 @@
  */
 
 resource "azurerm_cosmosdb_account" "db" {
-  name                            = module.naming.cosmosdb_account.value
+  name                            = module.naming.cosmosdb_account.name
   location                        = var.location
   resource_group_name             = var.resource_group_name
   offer_type                      = "Standard"
