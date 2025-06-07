@@ -22,7 +22,7 @@ resources:
       name: terrazure
 
 jobs:
-  #- template: security-pipeline-template.yml@templates
+  - template: security-pipeline-template.yml@templates
 
   - template: ci-pipeline-template.yml@templates
     parameters:
