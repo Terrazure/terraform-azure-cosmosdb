@@ -21,7 +21,7 @@ No requirements.
 
 ```hcl
 module "cosmosdb" {
-  source = "../module"
+  source = "../"
 
   location            = local.location
   resource_group_name = azurerm_resource_group.group.name

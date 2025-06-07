@@ -3,21 +3,21 @@
  */
 
 resource "azurerm_cosmosdb_account" "db" {
-  name                            = module.naming.cosmosdb_account.name
-  location                        = var.location
-  resource_group_name             = var.resource_group_name
-  offer_type                      = "Standard"
-  kind                            = var.kind
-  mongo_server_version            = var.kind == "MongoDB" ? var.mongo_server_version : null
-  public_network_access_enabled   = false
-  enable_automatic_failover       = true
-  enable_multiple_write_locations = true
-  local_authentication_disabled   = true
-  default_identity_type           = var.customer_managed_keys.cmk_enabled ? "UserAssignedIdentity=${var.customer_managed_keys.user_managed_identity_id}" : null
-  key_vault_key_id                = var.customer_managed_keys.cmk_enabled ? var.customer_managed_keys.kvt_key_versionless_id : null
+  name                             = module.naming.cosmosdb_account.name
+  location                         = var.location
+  resource_group_name              = var.resource_group_name
+  offer_type                       = "Standard"
+  kind                             = var.kind
+  mongo_server_version             = var.kind == "MongoDB" ? var.mongo_server_version : null
+  public_network_access_enabled    = false
+  automatic_failover_enabled       = true
+  multiple_write_locations_enabled = true
+  local_authentication_disabled    = true
+  default_identity_type            = var.customer_managed_keys.cmk_enabled ? "UserAssignedIdentity=${var.customer_managed_keys.user_managed_identity_id}" : null
+  key_vault_key_id                 = var.customer_managed_keys.cmk_enabled ? var.customer_managed_keys.kvt_key_versionless_id : null
 
   access_key_metadata_writes_enabled = false
-  ip_range_filter                    = join(",", var.authorized_ips_or_cidr_blocks)
+  ip_range_filter                    = var.authorized_ips_or_cidr_blocks
   is_virtual_network_filter_enabled  = length(var.authorized_vnet_subnet_ids) > 0 ? true : null
 
   dynamic "virtual_network_rule" {
