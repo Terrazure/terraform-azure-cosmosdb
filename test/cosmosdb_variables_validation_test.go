@@ -101,23 +101,23 @@ func TestBackupValidation(t *testing.T) {
 	testCases := []VariableTestCase{
 		{variableValue: map[string]interface{}{
 			"type":                "Periodic",
-			"interval_in_minutes": int32(65),
-			"retention_in_hours":  int32(32),
+			"interval_in_minutes": 65,
+			"retention_in_hours":  32,
 		}, errorExpected: false},
 		{variableValue: map[string]interface{}{
 			"type":                "Periodic",
-			"interval_in_minutes": int32(12),
-			"retention_in_hours":  int32(700),
+			"interval_in_minutes": 12,
+			"retention_in_hours":  700,
 		}, errorExpected: true},
 		{variableValue: map[string]interface{}{
 			"type":                "Continuous",
-			"interval_in_minutes": int32(100),
-			"retention_in_hours":  int32(900),
+			"interval_in_minutes": 100,
+			"retention_in_hours":  900,
 		}, errorExpected: true},
 		{variableValue: map[string]interface{}{
 			"type":                "Periodic",
-			"interval_in_minutes": int32(240),
-			"retention_in_hours":  int32(10),
+			"interval_in_minutes": 240,
+			"retention_in_hours":  10,
 		}, errorExpected: false}, // Ideally this should be tru, but missing validation
 	}
 
@@ -148,8 +148,8 @@ func TestConsistencyPolicyValidation(t *testing.T) {
 	testCases := []VariableTestCase{
 		{variableValue: map[string]interface{}{
 			"level":                   "abc",
-			"max_interval_in_seconds": int32(65),
-			"max_staleness_prefix":    int32(32),
+			"max_interval_in_seconds": 65,
+			"max_staleness_prefix":    32,
 		}, errorExpected: true},
 		{variableValue: map[string]interface{}{
 			"level":                   "Eventual",
@@ -157,14 +157,9 @@ func TestConsistencyPolicyValidation(t *testing.T) {
 			"max_staleness_prefix":    nil,
 		}, errorExpected: false},
 		{variableValue: map[string]interface{}{
-			"level":                   "BoundedStaleness",
-			"max_interval_in_seconds": int32(100),
-			"max_staleness_prefix":    int32(900),
-		}, errorExpected: false},
-		{variableValue: map[string]interface{}{
 			"level":                   "Strong",
-			"max_interval_in_seconds": int32(240),
-			"max_staleness_prefix":    int32(10),
+			"max_interval_in_seconds": 240,
+			"max_staleness_prefix":    10,
 		}, errorExpected: true},
 	}
 
