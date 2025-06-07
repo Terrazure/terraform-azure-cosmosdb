@@ -1,5 +1,5 @@
 module "role_assignment" {
-  source = "github.com/Terrazure/terraform-azure-rbac/module"
+  source = "github.com/Terrazure/terraform-azure-rbac"
 
   role_mapping = [
     {
