@@ -39,7 +39,6 @@ func TestBasicConfiguration(t *testing.T) {
 					"zone_redundant": false,
 				},
 			},
-			enableCMK: false,
 		},
 		{
 			environment: "Test",
@@ -57,7 +56,6 @@ func TestBasicConfiguration(t *testing.T) {
 					"zone_redundant": false,
 				},
 			},
-			enableCMK: true,
 		},
 	}
 

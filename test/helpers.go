@@ -22,33 +22,6 @@ func GetCosmosDBAccount(t *testing.T, subscriptionID string, resourceGroupName s
 	return cosmosDBAccount
 }
 
-func CountCosmosDBRoleAssignments(t *testing.T, subscriptionID, resourceGroupName, cdbName, roleDefinitionName string) int {
-	t.Helper()
-	return helpers.CountRoleAssignmentsOnResource(
-		t,
-		subscriptionID,
-		resourceGroupName,
-		"Microsoft.DocumentDB",
-		"",
-		"databaseAccounts",
-		cdbName,
-		roleDefinitionName)
-}
-
-func RoleAssignmentExistsOnCosmosDB(t *testing.T, subscriptionID, resourceGroupName, cdbName, roleDefinitionName, objectID string) bool {
-	t.Helper()
-	return helpers.RoleAssignmentExistsOnResource(
-		t,
-		subscriptionID,
-		resourceGroupName,
-		"Microsoft.DocumentDB",
-		"",
-		"databaseAccounts",
-		cdbName,
-		roleDefinitionName,
-		objectID)
-}
-
 func GetCosmosATP(t *testing.T, subscriptionID, location, resourceID string) security2.AdvancedThreatProtectionSetting {
 	t.Helper()
 	cosmosATPClient := security2.NewAdvancedThreatProtectionClient(subscriptionID, location)
