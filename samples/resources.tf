@@ -9,7 +9,7 @@ locals {
 }
 
 resource "azurerm_resource_group" "group" {
-  name     = "test-rg"
+  name     = "test-rg-actions"
   location = local.location
 }
 
