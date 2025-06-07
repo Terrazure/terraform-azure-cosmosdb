@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 locals {
-  location    = "westeurope"
+  location = "westeurope"
 }
 
 resource "random_string" "workload_name" {
