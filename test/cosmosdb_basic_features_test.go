@@ -80,7 +80,7 @@ func TestBasicConfiguration(t *testing.T) {
 				"capabilities":           testCase.capabilities,
 				"consistency_policy":     testCase.consistencyPolicy,
 				"failover_locations":     testCase.failOverLocations,
-				"azure_defender_enabled": testCase.enableAzureDefender
+				"azure_defender_enabled": testCase.enableAzureDefender,
 			}
 			terraformOptions := &terraform.Options{
 				TerraformDir: terraformDir,
