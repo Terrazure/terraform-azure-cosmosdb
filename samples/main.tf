@@ -23,7 +23,7 @@ module "cosmosdb" {
 
   failover_locations = {
     eastus = {
-      location       = "eastus"
+      location       = "eastus2"
       zone_redundant = true
     },
     westus = {
