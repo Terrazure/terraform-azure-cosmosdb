@@ -23,7 +23,7 @@ module "cosmosdb" {
 
   failover_locations = {
     eastus = {
-      location       = "eastus2"
+      location = "eastus2"
       #zone_redundant = true #Commenting due to the Azure service unavailability
     },
     westus = {
